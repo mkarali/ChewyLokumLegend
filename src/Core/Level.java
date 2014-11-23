@@ -10,7 +10,7 @@ public class Level {
 	 *           in the side panel.
 	 */
 	public void level() {
-		/* Hello */
+		/* Hello2 */
 	}
 
 	public void setTargetScore() {
