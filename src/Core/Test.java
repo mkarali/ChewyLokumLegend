@@ -1,14 +1,8 @@
 package Core;
-
 import java.awt.*;
-
+import java.io.IOException;
 import javax.swing.*;
-
-
-
-
 public class Test extends JFrame {
-
 	/**
 	 * 
 	 */
@@ -20,12 +14,12 @@ public class Test extends JFrame {
 	int moveCount;
 	
 	/**
+	 * @throws IOException 
 	 * @Requires: Game has to be opened.
 	 * @Ensures : Adds gameBoard and SidePanel to our screen
 	 * @Modifies:
 	 */
-	public Test(){
-
+	public Test() throws IOException{
 		super("Chewy Lokum Legend");
 		setLayout(new BorderLayout());
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -41,7 +35,6 @@ public class Test extends JFrame {
 	
 	}
 	
-
 /**
  * 
  * @param selectedLokum1
@@ -52,7 +45,6 @@ public class Test extends JFrame {
  * @Modifies: 
  */
 	public static void switchLokums(Lokum selectedLokum1,Lokum selectedLokum2){
-
 	
 	}
 	/**
@@ -73,6 +65,30 @@ public class Test extends JFrame {
 	 * @Modifies:
 	 */
 	public static void destroy(){
+		for (int i = GameBoard.row - 2; i >= 1; i--) {
+			for (int j = GameBoard.column - 2; j >= 1; j--) {
+				if(GameBoard.gameBoardInteger[i][j]==GameBoard.gameBoardInteger[i+1][j] && GameBoard.gameBoardInteger[i][j]==GameBoard.gameBoardInteger[i-1][j]   ){
+					GameBoard.gameBoardInteger[i][j]=0;
+					GameBoard.gameBoardInteger[i+1][j]=0;
+					GameBoard.gameBoardInteger[i-1][j]=0;
+					GameBoard.gameBoard[i][j].setIcon(null);
+					GameBoard.gameBoard[i+1][j].setIcon(null);
+					GameBoard.gameBoard[i-1][j].setIcon(null);
+				}
+				if(GameBoard.gameBoardInteger[i][j]==GameBoard.gameBoardInteger[i][j+1] && GameBoard.gameBoardInteger[i][j]==GameBoard.gameBoardInteger[i][j-1]){
+					
+					GameBoard.gameBoardInteger[i][j]=0;
+					GameBoard.gameBoardInteger[i][j+1]=0;
+					GameBoard.gameBoardInteger[i][j-1]=0;
+					GameBoard.gameBoard[i][j].setIcon(null);
+					GameBoard.gameBoard[i][j+1].setIcon(null);
+					GameBoard.gameBoard[i][j-1].setIcon(null);
+				}
+				
+			}
+		}
+		slide();
+	
 		
 	}
 	/**
@@ -83,7 +99,21 @@ public class Test extends JFrame {
 	 */
 	public static void slide(){
 		
-	}
+//	for (int i = 1; i < GameBoard.row-1; i++) {
+//		for (int j = 0; j < GameBoard.column-1; j++) {
+//			if(GameBoard.gameBoardInteger[i][j]==0){
+//				GameBoard.gameBoardInteger[i][j]=GameBoard.gameBoardInteger[i-1][j];
+//				GameBoard.gameBoard[i][j].setIcon(GameBoard.gameBoard[i-1][j].getIcon());
+//				GameBoard.gameBoardInteger[i-1][j]=0;
+//				GameBoard.gameBoard[i-1][j].setIcon(null);
+//		
+//		}
+//		
+//	}
+//				}
+	
+			}
+		
 	/**
 	 * @Requires: There has been made moves in the game.
 	 * @Ensures : If  move count is 0 the game is over and the game screen exited.

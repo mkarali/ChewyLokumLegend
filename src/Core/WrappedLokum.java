@@ -3,11 +3,18 @@ package Core;
 import java.awt.Image;
 import java.io.IOException;
 
+import javax.swing.ImageIcon;
+
 
 public class WrappedLokum extends SpecialLokum{
 
 	
 	private static final long serialVersionUID = 1L;
+	
+	public static ImageIcon wrappedPistachio = new ImageIcon("res/4pist.png");
+	public static ImageIcon wrappedHazelnut = new ImageIcon("res/4hazel.png");
+	public static ImageIcon wrappedRose = new ImageIcon("res/4rose.png");
+	public static ImageIcon wrappedCoconut = new ImageIcon("res/4coco.png");
 
 	/**
 	 * 

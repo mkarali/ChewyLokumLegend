@@ -1,6 +1,9 @@
 package Core;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
 
 import javax.swing.*;
 
@@ -15,6 +18,7 @@ public class SidePanel extends JPanel {
 	public static int moveCount = 0;
 	public Level myLevel;
 
+	
 	/**
 	 * 
 	 * @param test
@@ -26,6 +30,76 @@ public class SidePanel extends JPanel {
 	public SidePanel(Test test) {
 		setPreferredSize(new Dimension(275, 600));
 		setBackground(new Color(125, 150, 150));
+		
+		
+		this.setLayout(null);
+		
+		JButton saveButton = new JButton("Save");
+		
+		saveButton.setOpaque(true);
+		saveButton.setVisible(true);
+		saveButton.setBackground(new Color(125, 150, 150));
+		saveButton.setForeground(new Color(128, 21, 128));
+		saveButton.setFont(new Font("Jokerman", Font.BOLD, 30));
+		
+		saveButton.setBounds(15,300,250,75);
+		this.add(saveButton);
+	
+		saveButton.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent m) {
+				saveGame("ece");
+			}
+		});
+		
+		
+		
+		JButton retryButton = new JButton("Retry");
+		
+		retryButton.setOpaque(true);
+		retryButton.setVisible(true);
+		retryButton.setBackground(new Color(125, 150, 150));
+		retryButton.setForeground(new Color(128, 21, 128));
+		retryButton.setFont(new Font("Jokerman", Font.BOLD, 30));
+			
+		retryButton.setBounds(15,375,250,75);
+		this.add(retryButton);
+	
+		retryButton.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent m) {
+				retry();
+			}
+		});
+		
+		
+			
+		JButton quitButton = new JButton("Quit");
+		quitButton.setOpaque(true);
+		quitButton.setVisible(true);
+		quitButton.setBackground(new Color(125, 150, 150));
+		quitButton.setForeground(new Color(128, 21, 128));
+		quitButton.setFont(new Font("Jokerman", Font.BOLD, 30));
+		
+		quitButton.setBounds(15,450,250,75);
+		this.add(quitButton);
+	
+		quitButton.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent m) {
+				quit();
+			}
+		});
+		
+
+	
+		
+		
+		
+		
+		
+		
+		
 	}
 
 	/**
@@ -34,7 +108,7 @@ public class SidePanel extends JPanel {
 	 */
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		repaint();
+		//repaint();
 
 		g.setColor(Color.white);
 		g.setFont(new Font("Jokerman", Font.BOLD, 20));
@@ -43,8 +117,11 @@ public class SidePanel extends JPanel {
 		g.drawString("Moves Left: 0", 4, 170);
 		g.drawString("Score: 0", 4, 210);
 		g.setFont(new Font("Jokerman", Font.BOLD, 26));
-		g.setColor(new Color(128, 21, 128));
-		g.drawString("Made by Cekirdek", 4, 550);
+		//g.setColor(new Color(128, 21, 128));
+		//g.drawString("Made by Cekirdek", 4, 550);
+		
+		
+		
 	}
 
 	/**
@@ -73,8 +150,24 @@ public class SidePanel extends JPanel {
 	 *           settled according to the current level
 	 * 
 	 */
-	public void rety() {
+	public void retry() {
+		java.awt.EventQueue.invokeLater(new Runnable() {
 
+			public void run() {
+				try {
+					
+					new Test().setVisible(true);
+					
+					System.out.println("The game is being restarted now");
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				
+				}
+			//	
+
+			}
+		});
 	}
 
 	/**
@@ -85,7 +178,15 @@ public class SidePanel extends JPanel {
 	 */
 
 	public void quit() {
-
+		 int response = JOptionPane.showConfirmDialog(null, "Do you want to save game?", "Confirmation",
+			        JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+		 if (response == JOptionPane.NO_OPTION) {
+		      System.out.println("No button clicked");
+		    } else {
+		      System.out.println("Yes button clicked");
+		      //ececeececece
+		    }
+		System.exit(0);
 	}
 
 	/**
@@ -97,7 +198,7 @@ public class SidePanel extends JPanel {
 	 * @modifies : it saves the mentioned informations to the XML File
 	 */
 	public void saveGame(String s) {
-
+		
 	}
 
 	/**

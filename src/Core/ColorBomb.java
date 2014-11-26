@@ -3,11 +3,15 @@ package Core;
 import java.awt.Image;
 import java.io.IOException;
 
+import javax.swing.ImageIcon;
+
 
 public class ColorBomb extends SpecialLokum {
 
 	
 	private static final long serialVersionUID = 1L;
+	
+	public static ImageIcon colorBomb = new ImageIcon("res/colorbomb.png");
 
 	/**
 	 * 

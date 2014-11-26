@@ -3,6 +3,8 @@ package Core;
 import java.awt.Image;
 import java.io.IOException;
 
+import javax.swing.ImageIcon;
+
 
 public class StripedLokum extends SpecialLokum {
 
@@ -10,6 +12,15 @@ public class StripedLokum extends SpecialLokum {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	public static ImageIcon crossStripedPistachio = new ImageIcon("res/2pist.png");
+	public static ImageIcon crossStripedHazelnut = new ImageIcon("res/2hazel.png");
+	public static ImageIcon crossStripedRose = new ImageIcon("res/2rose.png");
+	public static ImageIcon crossStripedCoconut = new ImageIcon("res/2coco.png");
+	public static ImageIcon longitudinalStripedPistachio = new ImageIcon("res/3pist.png");
+	public static ImageIcon longitudinalStripedHazelnut = new ImageIcon("res/3hazel.png");
+	public static ImageIcon longitudinalStripedRose = new ImageIcon("res/3rose.png");
+	public static ImageIcon longitudinalStripedCoconut = new ImageIcon("res/3coco.png");
 
 	/**
 	 * 

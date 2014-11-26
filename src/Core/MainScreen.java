@@ -3,13 +3,14 @@ package Core;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 import javax.swing.*;
 
 
 public class MainScreen {
 
-	Test test;
+	public static Test test;
 	public static int rate = 600;
 	static int counter = 0;
 	public static int level = 3;
@@ -51,7 +52,12 @@ public class MainScreen {
 				java.awt.EventQueue.invokeLater(new Runnable() {
 
 					public void run() {
-						new Test().setVisible(true);
+						try {
+							new Test().setVisible(true);
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
 						table1.setVisible(false);
 
 					}

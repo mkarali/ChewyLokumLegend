@@ -3,11 +3,18 @@ package Core;
 import java.awt.Image;
 import java.io.IOException;
 
+import javax.swing.ImageIcon;
+
 
 public class BasicLokum extends Lokum{
 
 	
 	private static final long serialVersionUID = 1L;
+	
+	public static ImageIcon pistachio = new ImageIcon("res/1pist.png");
+	public static ImageIcon hazelnut = new ImageIcon("res/1hazel.png");
+	public static ImageIcon rose = new ImageIcon("res/1rose.png");
+	public static ImageIcon coconut = new ImageIcon("res/1coco.png");
 
 	/**
 	 * 
